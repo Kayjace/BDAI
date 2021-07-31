@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.4.26+commit.4563c3fc"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "contract_address",
+						"type": "address"
+					},
+					{
+						"name": "tos",
+						"type": "address[]"
+					},
+					{
+						"name": "vs",
+						"type": "uint256[]"
+					}
+				],
+				"name": "transfer",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"airdrop.sol": "AirDropContract"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"airdrop.sol": {
+			"keccak256": "0x711a357be3d095862b918abcff6505702a492cdfa9a3f98557b0ca98cd1c307d",
+			"urls": [
+				"bzzr://dfa009a30a84d83e21ae7c76b45c36c1bcd8c515abaeed6fc96d9d5fefefe798"
+			]
+		}
+	},
+	"version": 1
+}
