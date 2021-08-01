@@ -6,7 +6,18 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_symbol",
+						"type": "string"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -33,50 +44,6 @@
 					}
 				],
 				"name": "Approval",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					},
-					{
-						"indexed": true,
-						"internalType": "bool",
-						"name": "automatic",
-						"type": "bool"
-					}
-				],
-				"name": "Claim",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "uint256",
-						"name": "newValue",
-						"type": "uint256"
-					},
-					{
-						"indexed": true,
-						"internalType": "uint256",
-						"name": "oldValue",
-						"type": "uint256"
-					}
-				],
-				"name": "ClaimWaitUpdated",
 				"type": "event"
 			},
 			{
@@ -115,19 +82,6 @@
 					}
 				],
 				"name": "DividendsDistributed",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					}
-				],
-				"name": "ExcludeFromDividends",
 				"type": "event"
 			},
 			{
@@ -275,19 +229,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "claimWait",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "decimals",
 				"outputs": [
 					{
@@ -359,172 +300,6 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					}
-				],
-				"name": "excludeFromDividends",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "excludedFromDividends",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_account",
-						"type": "address"
-					}
-				],
-				"name": "getAccount",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					},
-					{
-						"internalType": "int256",
-						"name": "index",
-						"type": "int256"
-					},
-					{
-						"internalType": "int256",
-						"name": "iterationsUntilProcessed",
-						"type": "int256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "withdrawableDividends",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "totalDividends",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "lastClaimTime",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "nextClaimTime",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "secondsUntilAutoClaimAvailable",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "index",
-						"type": "uint256"
-					}
-				],
-				"name": "getAccountAtIndex",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					},
-					{
-						"internalType": "int256",
-						"name": "",
-						"type": "int256"
-					},
-					{
-						"internalType": "int256",
-						"name": "",
-						"type": "int256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getLastProcessedIndex",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getNumberOfTokenHolders",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
 						"name": "spender",
 						"type": "address"
 					},
@@ -543,51 +318,6 @@
 					}
 				],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "lastClaimTimes",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "lastProcessedIndex",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "minimumTokenBalanceForDividends",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -617,79 +347,8 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "gas",
-						"type": "uint256"
-					}
-				],
-				"name": "process",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address payable",
-						"name": "account",
-						"type": "address"
-					},
-					{
-						"internalType": "bool",
-						"name": "automatic",
-						"type": "bool"
-					}
-				],
-				"name": "processAccount",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "renounceOwnership",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address payable",
-						"name": "account",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "newBalance",
-						"type": "uint256"
-					}
-				],
-				"name": "setBalance",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -800,19 +459,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "newClaimWait",
-						"type": "uint256"
-					}
-				],
-				"name": "updateClaimWait",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "withdrawDividend",
 				"outputs": [],
@@ -859,6 +505,8 @@
 			}
 		],
 		"devdoc": {
+			"author": "Roger Wu (https://github.com/roger-wu)",
+			"details": "A mintable ERC20 token that allows anyone to pay and distribute ether  to token holders as dividends and allows token holders to withdraw their dividends.  Reference: the source code of PoWH3D: https://etherscan.io/address/0xB3775fB83F7D12A36E0475aBdD1FCA35c091efBe#code",
 			"kind": "dev",
 			"methods": {
 				"accumulativeDividendOf(address)": {
@@ -940,6 +588,7 @@
 					}
 				}
 			},
+			"title": "Dividend-Paying Token",
 			"version": 1
 		},
 		"userdoc": {
@@ -966,7 +615,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"BabyDAI.sol": "BDAIDividendTracker"
+			"DividendPayingToken.sol": "DividendPayingToken"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -980,14 +629,6 @@
 		"remappings": []
 	},
 	"sources": {
-		"BabyDAI.sol": {
-			"keccak256": "0xab39b2df635421551bec004ba997ddd83063884193932fc240af50006dd9ff2c",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://6c15f2f2ff329c2f3a76dfa766102c21e14c7747183b7e59bcbdf90ff19add37",
-				"dweb:/ipfs/QmaT9Goy6xRhhQwLdUToQjPtXynjwoAeh47coTf1XCjF6b"
-			]
-		},
 		"Context.sol": {
 			"keccak256": "0x6f25f617f4a8cbbf1305b79fe1bd7967045cf368fa28f8d5c19407ca84679345",
 			"license": "MIT",
@@ -997,11 +638,11 @@
 			]
 		},
 		"DividendPayingToken.sol": {
-			"keccak256": "0x39c33e0ba008052c438fb98e4b89ba02779e379b7280f013af6d3d54674c3b8b",
+			"keccak256": "0x9355d441a68fa61455d446ae56b874fc46451e6a98edbe722082b8447abfab2c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e14682f7da880a68b97520477b11e8d088d740f0c55d4b1ee26c545e1b524c59",
-				"dweb:/ipfs/QmYmZdxEkgWLRLoFgGvxSXoHNoJkGjrGFFvmEnyxavQNsz"
+				"bzz-raw://9f3f0ef296f68d824fbd0af31e701b3bb0f2975d26580fa74cfd49c8ba1deca2",
+				"dweb:/ipfs/QmXZTVgcziG1UsDm1F8HXKgGcFsNoo847J3SViK6NPM2Jw"
 			]
 		},
 		"DividendPayingTokenInterface.sol": {
@@ -1042,38 +683,6 @@
 			"urls": [
 				"bzz-raw://7ae9657a57c012b1f4a43503982084d93a20d5b46eb85e3885b60c76b15915ea",
 				"dweb:/ipfs/QmXQDEssdWeySfK972JktzvV7VxwnhdLVADEyNRZFmLECo"
-			]
-		},
-		"IUniswapV2Factory.sol": {
-			"keccak256": "0xccc328a1c3c7959a2355eb7ff66d63d9df164cc7daac37223284b8d6192898cf",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://5f3745753869777d171862e4f9e0ccf1dff2bdc57f3941195267d60cf58cb88a",
-				"dweb:/ipfs/QmVvh3EwUt15ZUdaFPM1hzTDRncsYouQZHnCU2crAVQUFa"
-			]
-		},
-		"IUniswapV2Pair.sol": {
-			"keccak256": "0x25912efdfa7127b5d9edb273b9bd730f2b487465a63a513d0d545b8203eb97d9",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://93010d9c0a26b6f4d923735ae2685461595233429ddf8cf2a8a8e30c9838b75d",
-				"dweb:/ipfs/QmTXVrc7khrcpHWeKDxertzNtvkZs1Nzi9A3JwibabhA1p"
-			]
-		},
-		"IUniswapV2Router.sol": {
-			"keccak256": "0x0248eb0ad99a92587be54f7535d7de5f110cbef3028ca6733bac5cc794740706",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://5541ea37b9109c3fdd88bcd6d0e7cd608b0d1511be1172b066ecde9ff1142d26",
-				"dweb:/ipfs/QmaxELC6b9EhrWwgStxiHtXv3QJEMyjEHHAeDKLDwj7YnJ"
-			]
-		},
-		"IterableMapping.sol": {
-			"keccak256": "0xffdcad33ea3af6164cb71f6a854ba6fdbda53e8de4e77eeabdd40e2980da5e87",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://5b237054b165465ea874843d178364888e416d0fa421f93ec082f29a0c9208c4",
-				"dweb:/ipfs/QmTNGwsazwxBZvkwnib8prPDmjp5gHNQAGNi5YkTkTWcgC"
 			]
 		},
 		"Ownable.sol": {

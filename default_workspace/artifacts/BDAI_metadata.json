@@ -1503,11 +1503,11 @@
 	},
 	"sources": {
 		"BabyDAI.sol": {
-			"keccak256": "0xfea9c904b7bea6c9f73ddd75d26a9d985b03f41cc92b43c0b0fc1ca742c62784",
+			"keccak256": "0xab39b2df635421551bec004ba997ddd83063884193932fc240af50006dd9ff2c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://78c71702b4d278198907d352255f1431993aec1a3096bf841bf0af8593c9cc50",
-				"dweb:/ipfs/QmeNwSGq9GBn5Lg5fLJd2UzGwguwqDdhc6NXaAySay7z2x"
+				"bzz-raw://6c15f2f2ff329c2f3a76dfa766102c21e14c7747183b7e59bcbdf90ff19add37",
+				"dweb:/ipfs/QmaT9Goy6xRhhQwLdUToQjPtXynjwoAeh47coTf1XCjF6b"
 			]
 		},
 		"Context.sol": {
@@ -1519,11 +1519,11 @@
 			]
 		},
 		"DividendPayingToken.sol": {
-			"keccak256": "0x9355d441a68fa61455d446ae56b874fc46451e6a98edbe722082b8447abfab2c",
+			"keccak256": "0x39c33e0ba008052c438fb98e4b89ba02779e379b7280f013af6d3d54674c3b8b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9f3f0ef296f68d824fbd0af31e701b3bb0f2975d26580fa74cfd49c8ba1deca2",
-				"dweb:/ipfs/QmXZTVgcziG1UsDm1F8HXKgGcFsNoo847J3SViK6NPM2Jw"
+				"bzz-raw://e14682f7da880a68b97520477b11e8d088d740f0c55d4b1ee26c545e1b524c59",
+				"dweb:/ipfs/QmYmZdxEkgWLRLoFgGvxSXoHNoJkGjrGFFvmEnyxavQNsz"
 			]
 		},
 		"DividendPayingTokenInterface.sol": {

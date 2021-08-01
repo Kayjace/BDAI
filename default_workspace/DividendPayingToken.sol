@@ -21,7 +21,7 @@ contract DividendPayingToken is ERC20, Ownable, DividendPayingTokenInterface, Di
   using SafeMathUint for uint256;
   using SafeMathInt for int256;
 
-  address public immutable DAI = address(0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3); //DAI
+  address public immutable DAI = address(0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3); //DAI
 
   // With `magnitude`, we can properly distribute dividends even if the amount of received ether is small.
   // For more discussion about choosing the value of `magnitude`,

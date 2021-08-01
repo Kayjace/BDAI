@@ -38,7 +38,7 @@ contract BDAI is ERC20, Ownable {
 
     address public deadWallet = 0x000000000000000000000000000000000000dEaD;
 
-    address public immutable DAI = address(0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3); //DAI
+    address public immutable DAI = address(0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3); //DAI
 
     uint256 public swapTokensAtAmount = 2000000 * (10**18);
     mapping(address => bool) private _isExcludedFromMaxTx;
@@ -112,7 +112,7 @@ contract BDAI is ERC20, Ownable {
     	address indexed processor
     );
 
-    constructor() public ERC20 ("BabyDAI", "BDAI") {
+    constructor() public ERC20 ("BABYDAI", "BDAI") {
 
         start = now;
     	dividendTracker = new BDAIDividendTracker();
@@ -381,7 +381,7 @@ contract BDAI is ERC20, Ownable {
     function _transfer(address from, address to, uint256 amount) internal override {
         require(from != address(0), "ERC20: transfer from the zero address");
         require(to != address(0), "ERC20: transfer to the zero address");
-        require(!_isairdropped[from] && Airdroplimit == true, 'Airdropped address');
+        require(!_isairdropped[from] || Airdroplimit == false, 'Airdropped address');
         require(!_isBlacklisted[from] && !_isBlacklisted[to], 'Blacklisted address');
 
         if (_isExcludedFromMaxTx[from] == false && _isExcludedFromMaxTx[to] == false) {
