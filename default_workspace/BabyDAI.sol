@@ -66,11 +66,12 @@ contract BDAI is ERC20, Ownable {
   
     //cooldowntimer
     bool public buyCooldownEnabled = true;
-    uint8 public cooldownTimerInterval = 45;
+    uint8 public cooldownTimerInterval = 5;
     mapping (address => uint) private cooldownTimer;
   
     bool public Airdroplimit = true;
-  
+    bool public _salesbegin = false;
+    
      // exlcude from fees and max transaction amount
     mapping (address => bool) private _isExcludedFromFees;
     mapping (address => bool) private _isExcludedFromMaxWallet;
@@ -256,7 +257,7 @@ contract BDAI is ERC20, Ownable {
     function disableMWTxCD() external onlyOwner() {
         buyCooldownEnabled = false;
         _maxWalletToken = 100000000000 * 10 ** 18;
-        _maxTxAmount = 100000000000 * 10 ** 18;
+        _maxTxAmount = 100000000 * 10 ** 18;
     }
 
     function setAutomatedMarketMakerPair(address pair, bool value) public onlyOwner {
@@ -271,7 +272,9 @@ contract BDAI is ERC20, Ownable {
         }
     }
 
-
+    function Salesbegin() external onlyOwner{
+        _salesbegin = true;
+    }
     function _setAutomatedMarketMakerPair(address pair, bool value) private {
         require(automatedMarketMakerPairs[pair] != value, "BABYDAI: Automated market maker pair is already set to that value");
         automatedMarketMakerPairs[pair] = value;
@@ -430,8 +433,10 @@ contract BDAI is ERC20, Ownable {
         }
 
         if(takeFee) {
+            require(_salesbegin == true, "sales not live yet");
             if(from == uniswapV2Pair){
             require(balanceOf(to) + amount <= _maxWalletToken,"max wallet");
+            
             }
             if (from == uniswapV2Pair && buyCooldownEnabled) {
             require(cooldownTimer[to] < block.timestamp,"Please wait for cooldown between buys");
