@@ -70,7 +70,7 @@ contract BDAI is ERC20, Ownable {
     mapping (address => uint) private cooldownTimer;
   
     bool public Airdroplimit = true;
-    bool public _salesbegin = false;
+    bool public _salesbegin = true;
     
      // exlcude from fees and max transaction amount
     mapping (address => bool) private _isExcludedFromFees;
@@ -272,8 +272,8 @@ contract BDAI is ERC20, Ownable {
         }
     }
 
-    function Salesbegin() external onlyOwner{
-        _salesbegin = true;
+    function Salesbegin(bool value) external onlyOwner{
+        _salesbegin = value;
     }
     function _setAutomatedMarketMakerPair(address pair, bool value) private {
         require(automatedMarketMakerPairs[pair] != value, "BABYDAI: Automated market maker pair is already set to that value");
