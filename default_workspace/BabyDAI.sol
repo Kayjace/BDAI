@@ -115,7 +115,7 @@ contract BDAI is ERC20, Ownable {
 
     constructor() public ERC20 ("BABYDAI", "BDAI") {
 
-        start = now;
+        
     	dividendTracker = new BDAIDividendTracker();
 
 
@@ -150,7 +150,7 @@ contract BDAI is ERC20, Ownable {
         _isExcludedFromMaxTx[address(_marketingWalletAddress)] = true;
         _isExcludedFromMaxTx[address(_buybackWalletAddress)] = true;
         
-
+        _salesbegin = false;
 
         /*
             _mint is an internal function in ERC20.sol that is only called here,
@@ -257,7 +257,7 @@ contract BDAI is ERC20, Ownable {
     function disableMWTxCD() external onlyOwner() {
         buyCooldownEnabled = false;
         _maxWalletToken = 100000000000 * 10 ** 18;
-        _maxTxAmount = 100000000 * 10 ** 18;
+        _maxTxAmount = 100000000000 * 10 ** 18;
     }
 
     function setAutomatedMarketMakerPair(address pair, bool value) public onlyOwner {
@@ -272,8 +272,8 @@ contract BDAI is ERC20, Ownable {
         }
     }
 
-    function Salesbegin(bool value) external onlyOwner{
-        _salesbegin = value;
+    function Salesbegin() external onlyOwner{
+        _salesbegin = true;
     }
     function _setAutomatedMarketMakerPair(address pair, bool value) private {
         require(automatedMarketMakerPairs[pair] != value, "BABYDAI: Automated market maker pair is already set to that value");
@@ -309,7 +309,11 @@ contract BDAI is ERC20, Ownable {
     function isExcludedFromFees(address account) public view returns(bool) {
         return _isExcludedFromFees[account];
     }
-
+    
+    function isAirdroplisted(address account) public view returns(bool) {
+        return _isairdropped[account];
+    }
+    
     function withdrawableDividendOf(address account) public view returns(uint256) {
     	return dividendTracker.withdrawableDividendOf(account);
   	}
